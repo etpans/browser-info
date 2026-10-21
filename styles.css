@@ -32,3 +32,35 @@ p {
   font-size: 0.95rem;
   opacity: 0.55;
 }
+
+.browser-info {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 26rem;
+  max-width: calc(100vw - 2rem);
+  color: light-dark(#74766f, #999b94);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
+.browser-info dl { margin: 0; }
+.browser-info dl > div { display: flex; gap: 1.25rem; }
+.browser-info dt { flex: 0 0 6.5rem; }
+.browser-info dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+#location-request {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+@media (max-height: 700px) {
+  body { grid-template-rows: auto 1fr; }
+  .browser-info { position: static; justify-self: start; margin: 1rem; }
+}

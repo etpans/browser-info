@@ -2,6 +2,53 @@ const status = document.querySelector('#status');
 const idleDelay = 5000;
 let idleTimer;
 
+const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+
+function updateBrowserInfo() {
+  const details = {
+    screen: `${window.screen.width} × ${window.screen.height}`,
+    window: `${window.innerWidth} × ${window.innerHeight}`,
+    pixels: `${window.devicePixelRatio || 1}× density`,
+    orientation: window.screen.orientation?.type || 'Unavailable',
+    cpu: navigator.hardwareConcurrency ?? 'Unavailable',
+    touch: navigator.maxTouchPoints ?? 'Unavailable',
+    language: navigator.language || 'Unavailable',
+    network: navigator.onLine ? 'Online' : 'Offline',
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unavailable',
+    appearance: darkMode.matches ? 'Dark' : 'Light'
+  };
+  for (const [name, value] of Object.entries(details)) {
+    document.querySelector(`#info-${name}`).textContent = value;
+  }
+}
+
+updateBrowserInfo();
+for (const type of ['resize', 'online', 'offline', 'focus']) {
+  window.addEventListener(type, updateBrowserInfo);
+}
+window.screen.orientation?.addEventListener('change', updateBrowserInfo);
+darkMode.addEventListener('change', updateBrowserInfo);
+
+const locationRequest = document.querySelector('#location-request');
+const locationInfo = document.querySelector('#info-location');
+if (!navigator.geolocation || !window.isSecureContext) {
+  locationRequest.hidden = true;
+  locationInfo.textContent = 'Unavailable';
+}
+locationRequest.addEventListener('click', () => {
+  locationRequest.hidden = true;
+  locationInfo.textContent = 'Locating…';
+  navigator.geolocation.getCurrentPosition(position => {
+    const { latitude, longitude, accuracy } = position.coords;
+    locationInfo.textContent = `${latitude.toFixed(4)}, ${longitude.toFixed(4)} (±${Math.round(accuracy)} m)`;
+  }, error => {
+    locationInfo.textContent = error.code === 1 ? 'Permission denied' : 'Unavailable';
+    locationRequest.hidden = false;
+    locationRequest.textContent = 'Try again';
+    locationInfo.textContent = ` — ${locationInfo.textContent}`;
+  }, { timeout: 10000, maximumAge: 60000 });
+});
+
 function isAway() {
   return document.hidden || !document.hasFocus();
 }
