@@ -34,6 +34,8 @@ p {
 }
 
 .browser-info {
+  -webkit-user-select: text;
+  user-select: text;
   position: absolute;
   top: 1rem;
   left: 1rem;
