@@ -1,4 +1,4 @@
-# Activity detector
+# browser-info
 
 Curiosity killed the cat. I wanted to see what browsers can see, so I made a
 little page that reacts to your input and tab activity.
