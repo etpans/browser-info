@@ -10,18 +10,54 @@
   <body>
     <aside class="browser-info" aria-label="Browser information">
       <dl>
+        <div><dt>Browser</dt><dd id="info-browser">—</dd></div>
+        <div><dt>Platform</dt><dd id="info-platform">—</dd></div>
+        <div><dt>User agent</dt><dd id="info-agent">—</dd></div>
+        <div><dt>Legacy plugins</dt><dd id="info-plugins">—</dd></div>
+        <div><dt>Graphics</dt><dd id="info-graphics">—</dd></div>
+        <div><dt>Memory estimate</dt><dd id="info-memory">—</dd></div>
         <div><dt>Screen</dt><dd id="info-screen">—</dd></div>
+        <div><dt>Usable screen</dt><dd id="info-available">—</dd></div>
+        <div><dt>Color depth</dt><dd id="info-color">—</dd></div>
         <div><dt>Window</dt><dd id="info-window">—</dd></div>
         <div><dt>Pixels</dt><dd id="info-pixels">—</dd></div>
         <div><dt>Orientation</dt><dd id="info-orientation">—</dd></div>
         <div><dt>CPU threads</dt><dd id="info-cpu">—</dd></div>
         <div><dt>Touch points</dt><dd id="info-touch">—</dd></div>
         <div><dt>Language</dt><dd id="info-language">—</dd></div>
+        <div><dt>Languages</dt><dd id="info-languages">—</dd></div>
         <div><dt>Network</dt><dd id="info-network">—</dd></div>
+        <div><dt>Connection class</dt><dd id="info-connection">—</dd></div>
+        <div><dt>Speed estimate</dt><dd id="info-downlink">—</dd></div>
+        <div><dt>Latency estimate</dt><dd id="info-latency">—</dd></div>
+        <div><dt>Data saver</dt><dd id="info-saver">—</dd></div>
+        <div><dt>Referring page</dt><dd id="info-referrer">—</dd></div>
+        <div><dt>Cookies</dt><dd id="info-cookies">—</dd></div>
+        <div><dt>PDF viewer</dt><dd id="info-pdf">—</dd></div>
+        <div><dt>Automation</dt><dd id="info-automation">—</dd></div>
+        <div><dt>Do Not Track</dt><dd id="info-dnt">—</dd></div>
+        <div><dt>Privacy Control</dt><dd id="info-gpc">—</dd></div>
         <div><dt>Timezone</dt><dd id="info-timezone">—</dd></div>
+        <div><dt>Clock offset</dt><dd id="info-offset">—</dd></div>
         <div><dt>Appearance</dt><dd id="info-appearance">—</dd></div>
+        <div><dt>Motion</dt><dd id="info-motion">—</dd></div>
+        <div><dt>Contrast</dt><dd id="info-contrast">—</dd></div>
+        <div><dt>Forced colors</dt><dd id="info-forced">—</dd></div>
+        <div><dt>Inverted colors</dt><dd id="info-inverted">—</dd></div>
+        <div><dt>Pointer</dt><dd id="info-pointer">—</dd></div>
+        <div><dt>Color gamut</dt><dd id="info-gamut">—</dd></div>
+        <div><dt>Speech voices</dt><dd id="info-voices">—</dd></div>
+        <div><dt>Site storage</dt><dd id="info-storage">Unavailable</dd></div>
+        <div><dt>Battery</dt><dd id="info-battery">Unavailable</dd></div>
+        <div><dt>Media devices</dt><dd id="info-devices">Unavailable</dd></div>
+        <div><dt>Location access</dt><dd id="info-permission-geolocation">Unavailable</dd></div>
+        <div><dt>Notifications</dt><dd id="info-permission-notifications">Unavailable</dd></div>
+        <div><dt>Camera access</dt><dd id="info-permission-camera">Unavailable</dd></div>
+        <div><dt>Mic access</dt><dd id="info-permission-microphone">Unavailable</dd></div>
+        <div><dt>MIDI access</dt><dd id="info-permission-midi">Unavailable</dd></div>
         <div><dt>Location</dt><dd><button id="location-request" type="button">Allow location</button><span id="info-location" role="status"></span></dd></div>
       </dl>
+      <p class="info-note">Reported values may be reduced, masked, or unavailable. Connection class and speed are estimates, not a speed test. Legacy plugins do not list installed extensions. Device counts may be incomplete; permission states are queried without requesting access. Details stay on this page; location requires permission.</p>
     </aside>
     <main>
       <h1 id="status" role="status" aria-live="polite">Hello, you're here.</h1>
